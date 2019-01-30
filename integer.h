@@ -517,13 +517,6 @@ class integer{
         std::string str(const integer & base = 10, const std::string::size_type & length = 1) const;
 };
 
-// Give integer type traits
-namespace std {  // This is probably not a good idea
-    template <> struct is_arithmetic <integer> : std::true_type {};
-    template <> struct is_integral   <integer> : std::true_type {};
-    template <> struct is_signed     <integer> : std::true_type {};
-};
-
 // operators where lhs is not of type integer
 
 // Bitwise Operators
