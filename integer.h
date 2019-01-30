@@ -165,6 +165,7 @@ class integer{
         operator int16_t()  const;
         operator int32_t()  const;
         operator int64_t()  const;
+        operator integer::REP_SIZE_T() const;
 
         // Bitwise Operators
         integer operator&(const integer & rhs) const;

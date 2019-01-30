@@ -215,6 +215,17 @@ integer::operator int64_t() const {
     return _sign?-out:out;
 }
 
+integer::operator integer::REP_SIZE_T() const {
+  integer::REP_SIZE_T out = 0;
+  
+  const integer::REP_SIZE_T d = std::min(digits(), std::max((integer::REP_SIZE_T) 8 / integer::OCTETS, (integer::REP_SIZE_T) 1));
+  for(integer::REP_SIZE_T x = 0; x < d; x++){
+    out += static_cast <integer::REP_SIZE_T> (_value[digits() - x - 1]) << (x * integer::BITS);
+  }
+  
+  return _sign?-out:out;
+}
+
 // Bitwise Operators
 integer integer::operator&(const integer & rhs) const {
     integer::REP out;
